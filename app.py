@@ -171,7 +171,8 @@ async def start(message: Message):
         return
     link = BASE_URL + '/go?' + urlencode({'token': token})
     keyboard = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text='Перейти на стрим', url=link)]])
-    await message.answer('🔴 Стрим уже ждёт!\n\nЗалетай по кнопке ниже 👇', reply_markup=keyboard)
+    await message.answer('🔴 Стрим уже ждёт!\n\nЗалетай по кнопке ниже 👇')
+    await message.answer('🔴 The stream is live!\n\nJoin using the button below 👇', reply_markup=keyboard)
 
 
 @dp.message(Command('setlink'))
