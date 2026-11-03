@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: nekota-streams
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.2
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: DB_PATH
+        value: /var/data/data.sqlite3
+    disk:
+      name: stream-data
+      mountPath: /var/data
+      sizeGB: 1
